@@ -1,15 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace demo.WebApiDotNetCore8.Models
 {
    public class Court
    {
       [Key]
+      [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
       public int Id { get; set; }
       [MaxLength(20)]
-      public string? Type { get; set; }
+      public string? CourtType { get; set; }
 
-      [MaxLength(10)]
       public int? NumbOfCourts { get; set; }
       public string? Title { get; set; }
       [MaxLength(150)]

@@ -36,17 +36,15 @@ namespace demo.WebApiDotNetCore8.Controllers
          return CreatedAtAction(nameof(GetById), new { id = court.Id }, court);
       }
 
-      [HttpPut("api/Update-Court/{id}")]
-      public async Task<ActionResult<Court?>> Update(Court court)
+      [HttpPut("api/Update-Court")]
+      public async Task<ActionResult> Update(Court court)
       {
          _context.Courts.Update(court);
          await _context.SaveChangesAsync();
          return Ok();
-
       }
 
       [HttpDelete("api/Delete-Court/{id}")]
-
       public async Task<ActionResult<Court?>> Delete(int id)
       {
          var result = await GetById(id);

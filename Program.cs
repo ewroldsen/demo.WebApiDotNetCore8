@@ -15,7 +15,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pickleball Court Locations API", Version = "v1" }); });
 
-
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbConn")));
 
 builder.Services.AddAuthorization();
@@ -30,9 +29,6 @@ builder.Services.Configure<IdentityOptions>(options =>
    options.Lockout.MaxFailedAccessAttempts = 5;
    options.Lockout.AllowedForNewUsers = false;
 });
-
-
-
 
 var app = builder.Build();
 

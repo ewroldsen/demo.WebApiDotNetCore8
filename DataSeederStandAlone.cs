@@ -64,7 +64,7 @@ namespace demo.WebApiDotNetCore8
                {
                   new Court
                   {
-                     Type = "Indoor",
+                     CourtType = "Indoor",
                      NumbOfCourts = 6,
                      Title = "Pickleball Court 1",
                      StreetAddress = "123 Main St",
@@ -76,7 +76,7 @@ namespace demo.WebApiDotNetCore8
                   },
                   new Court
                   {
-                     Type = "Outdoor",
+                     CourtType = "Outdoor",
                      NumbOfCourts = 2,
                      Title = "Pickleball Court 2",
                      StreetAddress = "456 Elm St",

@@ -232,6 +232,10 @@ namespace demo.WebApiDotNetCore8.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("CourtType")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("Latitude")
                         .HasMaxLength(12)
                         .HasColumnType("nvarchar(12)");
@@ -254,10 +258,6 @@ namespace demo.WebApiDotNetCore8.Migrations
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Type")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("ZipCode")
                         .HasMaxLength(5)
