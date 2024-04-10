@@ -6,10 +6,16 @@
 - Seed Initial User/Court Data (DataSeederStandAlone.cs)
 - Endpoints using EF as well as Stored Procedures (FromSqlInterpolated, FromSqlRaw)
 
-Login - Get Bearer Token
-{
+- Set your Connections string in Appsettings.json
+- PM> update-database
+- PM> dotnet run seeddata (seeds initial users and court data)
+- Login 
+
+- {
 "email": "admin@example.com",
   "password": "Admin@123!*!",
   "twoFactorCode": "string",
   "twoFactorRecoveryCode": "string"
 }
+
+- Get Bearer Token
