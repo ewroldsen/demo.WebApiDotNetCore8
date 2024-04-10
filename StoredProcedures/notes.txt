@@ -1,0 +1,37 @@
+
+-- Create SQL Migration
+		add-migration <ANYNAME>
+
+-- manaulay add SP to Up Migration file
+
+-----------------------------------------------------
+  protected override void Up(MigrationBuilder migrationBuilder)
+        {
+         migrationBuilder.Sql(@"
+            USE [WebApiDotNetCore8]
+            GO
+            SET ANSI_NULLS ON
+            GO
+            SET QUOTED_IDENTIFIER ON
+            GO
+            CREATE PROCEDURE [dbo].[sp_GetCourtById] @Id INT
+            AS
+            BEGIN
+            SET NOCOUNT ON;
+
+            SELECT * FROM Courts WHERE Id = @Id
+            END
+            GO
+         ");
+      }
+-----------------------------------------------------
+
+
+update-database
+
+
+// drop SP in migration
+ protected override void Down(MigrationBuilder migrationBuilder)
+      {
+         migrationBuilder.Sql("DROP PROCEDURE sp_GetCourtById");
+      }

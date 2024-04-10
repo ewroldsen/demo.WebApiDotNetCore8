@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace demo.WebApiDotNetCore8.Controllers
 {
-
    [ApiController]
    [Route("api/[controller]")]
    [ApiVersion("1.0")]
@@ -23,7 +22,7 @@ namespace demo.WebApiDotNetCore8.Controllers
       /// This Enpoint Gets All Courts info
       /// </summary>
       /// <response code="200">Returns all courts</response>
-      [HttpGet("api/Get-Courts")]
+      [HttpGet("Get-Courts")]
       public ActionResult<IEnumerable<Court>> Get()
       {
          return _context.Courts;
@@ -31,7 +30,7 @@ namespace demo.WebApiDotNetCore8.Controllers
       /// <summary>
       /// This Endpoint Gets a Court by Id
       /// </summary>
-      [HttpGet("api/Get-CourtById/{id}")]
+      [HttpGet("Get-CourtById/{id}")]
 
       public async Task<ActionResult<Court?>> GetById(int id)
       {
@@ -40,7 +39,7 @@ namespace demo.WebApiDotNetCore8.Controllers
       /// <summary>
       /// This Endpoint Creates a new Court
       /// </summary>
-      [HttpPost("api/Add-Court")]
+      [HttpPost("Add-Court")]
       public async Task<ActionResult<Court?>> Create(Court court)
       {
          await _context.Courts.AddAsync(court);
@@ -50,7 +49,7 @@ namespace demo.WebApiDotNetCore8.Controllers
       /// <summary>
       /// This Endpoint Updates a Court
       /// </summary>
-      [HttpPut("api/Update-Court")]
+      [HttpPut("Update-Court")]
       public async Task<ActionResult> Update(Court court)
       {
          _context.Courts.Update(court);
@@ -60,7 +59,7 @@ namespace demo.WebApiDotNetCore8.Controllers
       /// <summary>
       /// This Endpoint Deletes a Court
       /// </summary>
-      [HttpDelete("api/Delete-Court/{id}")]
+      [HttpDelete("Delete-Court/{id}")]
       public async Task<ActionResult<Court?>> Delete(int id)
       {
          var result = await GetById(id);
@@ -72,9 +71,7 @@ namespace demo.WebApiDotNetCore8.Controllers
          await _context.SaveChangesAsync();
 
          return Ok();
-
       }
-
    }
 }
 

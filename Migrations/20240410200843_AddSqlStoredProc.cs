@@ -1,0 +1,37 @@
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+
+#nullable disable
+
+namespace demo.WebApiDotNetCore8.Migrations
+{
+    /// <inheritdoc />
+    public partial class AddSqlStoredProc : Migration
+    {
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+         migrationBuilder.Sql(@"
+            USE [WebApiDotNetCore8]
+            GO
+            SET ANSI_NULLS ON
+            GO
+            SET QUOTED_IDENTIFIER ON
+            GO
+            CREATE PROCEDURE [dbo].[sp_GetCourtById] @Id INT
+            AS
+            BEGIN
+            SET NOCOUNT ON;
+
+            SELECT * FROM Courts WHERE Id = @Id
+            END
+            GO
+         ");
+      }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+
+        }
+    }
+}
