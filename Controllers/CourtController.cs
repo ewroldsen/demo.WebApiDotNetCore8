@@ -19,23 +19,27 @@ namespace demo.WebApiDotNetCore8.Controllers
       {
          _context = context;
       }
-     /// <summary>
-     /// This Enpoint Gets All Courts
-     /// </summary>
-     /// <response code="200">Returns all courts</response>
+      /// <summary>
+      /// This Enpoint Gets All Courts info
+      /// </summary>
+      /// <response code="200">Returns all courts</response>
       [HttpGet("api/Get-Courts")]
       public ActionResult<IEnumerable<Court>> Get()
       {
          return _context.Courts;
       }
-
+      /// <summary>
+      /// This Endpoint Gets a Court by Id
+      /// </summary>
       [HttpGet("api/Get-CourtById/{id}")]
 
       public async Task<ActionResult<Court?>> GetById(int id)
       {
          return await _context.Courts.Where(c => c.Id == id).FirstOrDefaultAsync();
       }
-
+      /// <summary>
+      /// This Endpoint Creates a new Court
+      /// </summary>
       [HttpPost("api/Add-Court")]
       public async Task<ActionResult<Court?>> Create(Court court)
       {
@@ -43,7 +47,9 @@ namespace demo.WebApiDotNetCore8.Controllers
          await _context.SaveChangesAsync();
          return CreatedAtAction(nameof(GetById), new { id = court.Id }, court);
       }
-
+      /// <summary>
+      /// This Endpoint Updates a Court
+      /// </summary>
       [HttpPut("api/Update-Court")]
       public async Task<ActionResult> Update(Court court)
       {
@@ -54,8 +60,6 @@ namespace demo.WebApiDotNetCore8.Controllers
       /// <summary>
       /// This Endpoint Deletes a Court
       /// </summary>
-      /// <param name="id"></param>
-      /// <returns></returns>
       [HttpDelete("api/Delete-Court/{id}")]
       public async Task<ActionResult<Court?>> Delete(int id)
       {

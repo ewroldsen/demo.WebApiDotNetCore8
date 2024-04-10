@@ -19,8 +19,6 @@ builder.Services.AddSwaggerGen(options =>
    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "demo.WebApiDotNetCore8.xml"));
 });
 
-
-
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbConn")));
 
 builder.Services.AddAuthorization();

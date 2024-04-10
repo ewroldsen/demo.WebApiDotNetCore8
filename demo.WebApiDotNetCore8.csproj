@@ -13,17 +13,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="Interfaces\**" />
-		<Compile Remove="Repository\**" />
-		<Content Remove="Interfaces\**" />
-		<Content Remove="Repository\**" />
-		<EmbeddedResource Remove="Interfaces\**" />
-		<EmbeddedResource Remove="Repository\**" />
-		<None Remove="Interfaces\**" />
-		<None Remove="Repository\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="AutoMapper" Version="13.0.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.3" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
