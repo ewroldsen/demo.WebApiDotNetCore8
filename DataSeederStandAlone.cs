@@ -46,7 +46,7 @@ namespace demo.WebApiDotNetCore8
             // Seed Identity Admin
             if (await _userManager.FindByNameAsync("admin") == null)
             {
-               var user = new IdentityUser { UserName = "admin", Email = AdminEmail, EmailConfirmed = true, PhoneNumber = "7044567890", PhoneNumberConfirmed = true };
+               var user = new IdentityUser { UserName = AdminEmail, Email = AdminEmail, EmailConfirmed = true, PhoneNumber = "7044567890", PhoneNumberConfirmed = true };
                await _userManager.CreateAsync(user, "Admin@123!*!");
                await _userManager.AddToRoleAsync(user, UserRoles.Admin);
 
