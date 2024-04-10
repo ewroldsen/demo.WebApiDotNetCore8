@@ -1,8 +1,8 @@
 
 -- Create SQL Migration
-		add-migration <ANYNAME>
+	PM> add-migration AddSqlStoredProcs
 
--- manaulay add SP to Up Migration file
+-- add SP to Up Migration file
 
 -----------------------------------------------------
   protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +27,7 @@
 -----------------------------------------------------
 
 
-update-database
+PM> update-database
 
 
 // drop SP in migration
