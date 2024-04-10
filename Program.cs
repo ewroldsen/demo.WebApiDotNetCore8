@@ -12,7 +12,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(options =>
 {
    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Pickleball Court Locations API", Version = "v1" });
@@ -53,6 +52,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+///app.MapIdentityApi<IdentityUser>();
 
 app.UseAuthorization();
 
