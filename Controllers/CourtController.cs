@@ -5,6 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace demo.WebApiDotNetCore8.Controllers
 {
+
+   [ApiController]
+   [Route("api/[controller]")]
+   [ApiVersion("1.0")]
+   [Produces("application/json")]
    public class CourtController : Controller
    {
 
@@ -14,7 +19,10 @@ namespace demo.WebApiDotNetCore8.Controllers
       {
          _context = context;
       }
-
+     /// <summary>
+     /// This Enpoint Gets All Courts
+     /// </summary>
+     /// <response code="200">Returns all courts</response>
       [HttpGet("api/Get-Courts")]
       public ActionResult<IEnumerable<Court>> Get()
       {
@@ -43,7 +51,11 @@ namespace demo.WebApiDotNetCore8.Controllers
          await _context.SaveChangesAsync();
          return Ok();
       }
-
+      /// <summary>
+      /// This Endpoint Deletes a Court
+      /// </summary>
+      /// <param name="id"></param>
+      /// <returns></returns>
       [HttpDelete("api/Delete-Court/{id}")]
       public async Task<ActionResult<Court?>> Delete(int id)
       {

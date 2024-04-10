@@ -1,6 +1,5 @@
 using demo.WebApiDotNetCore8;
 using demo.WebApiDotNetCore8.Data;
-
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -13,7 +12,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new OpenApiInfo { Title = "Pickleball Court Locations API", Version = "v1" }); });
+
+builder.Services.AddSwaggerGen(options =>
+{
+   options.SwaggerDoc("v1", new OpenApiInfo { Title = "Pickleball Court Locations API", Version = "v1" });
+   options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "demo.WebApiDotNetCore8.xml"));
+});
+
+
 
 builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DbConn")));
 
